@@ -410,7 +410,7 @@ def print_dns(dest_ip):
 
 if args.dns:
     try:
-        import dnslib
+        import dnslib  # type: ignore
         from cachetools import TTLCache
     except ImportError:
         print("Error: The python packages dnslib and cachetools are required "
@@ -432,7 +432,7 @@ if args.dns:
     # and the connect that used the IP
     DELAY_DNS = 100
 
-    dns_cache = TTLCache(maxsize=DNS_CACHE_SIZE, ttl=DEFAULT_TTL)
+    dns_cache = TTLCache(maxsize=DNS_CACHE_SIZE, ttl=DEFAULT_TTL)  # type: ignore
 
     # process event
     def save_dns(cpu, data, size):
